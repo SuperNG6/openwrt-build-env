@@ -13,7 +13,7 @@ ARG DEPENDS_LIST=depends-ubuntu-2004
 
 RUN apt-get update -qq && \
     apt-get upgrade -qqy && \
-    apt-get install -qqy $(cat ${DEPENDS_LIST}) && \
+    apt-get install -qqy $(cat ./${DEPENDS_LIST}) && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
