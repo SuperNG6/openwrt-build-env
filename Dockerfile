@@ -4,16 +4,16 @@
 # Copyright (c) 2020 P3TERX <https://p3terx.com>
 
 ARG BASE_IMAGE_TAG=20.04
-FROM ubuntu:${BASE_IMAGE_TAG}
+FROM linuxplus/ubuntu:${BASE_IMAGE_TAG}
 
 USER root
 
 ARG DEBIAN_FRONTEND=noninteractive
+ARG DEPENDS_LIST=depends-ubuntu-2004
 
 RUN apt-get update -qq && \
     apt-get upgrade -qqy && \
-    apt-get install -qqy curl wget vim && \
-    bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)' && \
+    apt-get install -qqy $(cat ${DEPENDS_LIST}) && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
