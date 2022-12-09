@@ -12,6 +12,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -qq && \
     apt-get upgrade -qqy && \
+    apt-get install -qqy curl wget vim && \
     bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)' && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
