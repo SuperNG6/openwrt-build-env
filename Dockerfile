@@ -4,7 +4,7 @@
 # Copyright (c) 2020 P3TERX <https://p3terx.com>
 
 ARG BASE_IMAGE_TAG=20.04
-FROM linuxplus/ubuntu:${BASE_IMAGE_TAG}
+FROM ubuntu:${BASE_IMAGE_TAG}
 
 USER root
 
