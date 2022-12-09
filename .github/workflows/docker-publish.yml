@@ -36,8 +36,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            superng6/openwrt-build-env:20.04
-            superng6/openwrt-build-env:latest
+            ${{ secrets.DOCKER_USERNAME }}/openwrt-build-env:20.04
+            ${{ secrets.DOCKER_USERNAME }}/openwrt-build-env:latest
 
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
