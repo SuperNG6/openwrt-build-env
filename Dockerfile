@@ -9,11 +9,10 @@ FROM linuxplus/ubuntu:${BASE_IMAGE_TAG}
 USER root
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG DEPENDS_LIST=depends-ubuntu-2004
 
 RUN apt-get update -qq && \
     apt-get upgrade -qqy && \
-    apt-get install -qqy $(curl -fsSL git.io/${DEPENDS_LIST}) && \
+    bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)' && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
