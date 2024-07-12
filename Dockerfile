@@ -3,7 +3,7 @@
 # MIT License
 # Copyright (c) 2020 P3TERX <https://p3terx.com>
 
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 USER root
 
